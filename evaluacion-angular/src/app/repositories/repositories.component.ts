@@ -18,7 +18,6 @@ ngOnInit() {
   this._repositoryService.getAllRepositories().subscribe({
     next: (data) => {
       this.repositories = data;
-      console.log('Datos recibidos con éxito');
     },
     error: (err) => {
       console.error('Error al conectar con la API', err);

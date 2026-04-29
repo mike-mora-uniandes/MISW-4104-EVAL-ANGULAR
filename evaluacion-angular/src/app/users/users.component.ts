@@ -19,7 +19,6 @@ export class UsersComponent implements OnInit {
     this._userService.getAllUsers().subscribe({
       next: (data) => {
         this.users = data;
-        console.log('Datos recibidos con éxito');
       },
       error: (err) => {
         console.error('Error al conectar con la API', err);
