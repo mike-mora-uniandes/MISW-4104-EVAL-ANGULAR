@@ -1,99 +1,239 @@
-.user-container {
-  padding: 20px;
-  background-color: #f4f7f6;
+/* === Page wrapper === */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+/* Header de la página */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
 }
 
-/* Grid responsivo */
+.page-header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.counter-num {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.counter-label {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+/* === Layout side-by-side === */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* === Grid de cards === */
 .user-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
 }
 
-/* Tarjeta de usuario */
+/* === Card === */
 .user-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .user-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
 
-/* Avatar y Badge */
-.avatar-container {
-  position: relative;
-  height: 150px;
-  background: #e0e0e0;
+.user-card.active {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-2px);
+}
+
+.card-top {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
 }
 
-.avatar {
-  width: 100%;
-  height: 100%;
+.card-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--bg-app);
+  box-shadow: var(--shadow-sm);
 }
 
-.role-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
+.card-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
-/* Colores por rol */
-.admin { background-color: #e74c3c; }
-.developer { background-color: #3498db; }
-.designer { background-color: #9b59b6; }
-
-.user-info {
-  padding: 15px;
+.card-username {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
 }
 
-.username {
-  color: #7f8c8d;
-  margin-bottom: 15px;
-}
-
-.details p {
-  font-size: 0.9rem;
-  margin: 5px 0;
-}
-
-/* Tags de Repositorios */
-.repo-list {
+.card-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 5px;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
 }
 
-.repo-tag {
-  background: #ecf0f1;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  border: 1px solid #bdc3c7;
+.card-meta svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
 }
 
-.no-data {
-  font-size: 0.8rem;
-  color: #bdc3c7;
-  font-style: italic;
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.card-footer svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* === Role pills (soft) === */
+.role-pill {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  border: 1px solid;
+  background: var(--neutral-bg);
+  color: var(--neutral-text);
+  border-color: var(--neutral-border);
+  white-space: nowrap;
+}
+
+.role-pill.admin {
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  border-color: var(--admin-border);
+}
+.role-pill.developer {
+  background: var(--developer-bg);
+  color: var(--developer-text);
+  border-color: var(--developer-border);
+}
+.role-pill.designer {
+  background: var(--designer-bg);
+  color: var(--designer-text);
+  border-color: var(--designer-border);
+}
+
+/* === Detail panel === */
+.detail-panel {
+  position: sticky;
+  top: 96px; /* deja espacio para la topbar */
+}
+
+/* === Empty state === */
+.empty-state {
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-card);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.empty-state p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: 240px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .detail-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

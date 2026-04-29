@@ -11,6 +11,7 @@ import { UsersService } from './users.service';
 export class UsersComponent implements OnInit {
 
   public users: User[] = [];
+  public selectedUser: User | null = null;;
 
   constructor(private _userService: UsersService) { }
 
@@ -24,7 +25,10 @@ export class UsersComponent implements OnInit {
         console.error('Error al conectar con la API', err);
       }      
     })
+  }
 
+  onSelectedUser(user: User): void{
+    this.selectedUser = user;
   }
 
 }

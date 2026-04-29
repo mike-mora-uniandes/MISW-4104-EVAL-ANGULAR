@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../users.model';
 
 @Component({
   selector: 'app-user-detail',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './user-detail.component.css'
 })
 export class UserDetailComponent {
+  @Input() user!: User;
+  @Output() close = new EventEmitter<void>();
 
+  onClose(): void {
+    this.close.emit();
+  }
 }

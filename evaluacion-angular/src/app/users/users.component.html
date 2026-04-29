@@ -1,36 +1,72 @@
-<div class="user-container">
-  <h1>Directorio de Usuarios</h1>
-
-  <div class="user-grid">
-    <div class="user-card" *ngFor="let user of users">
-      
-      <div class="avatar-container">
-        <img [src]="user.avatarUrl" [alt]="user.name" class="avatar">
-        <span class="role-badge" [ngClass]="user.role">{{ user.role }}</span>
-      </div>
-
-      <div class="user-info">
-        <h3>{{ user.name }}</h3>
-        <p class="username">&#64;{{ user.username }}</p>
-        
-        <div class="details">
-          <p><strong>Email:</strong> {{ user.email }}</p>
-          <p><strong>Ubicación:</strong> {{ user.location }}</p>
-        </div>
-
-        <div class="repos">
-          <strong>Repositorios:</strong>
-          <div class="repo-list" *ngIf="user.repoIds.length > 0; else noRepos">
-            <span *ngFor="let id of user.repoIds" class="repo-tag">
-              ID: {{ id }}
-            </span>
-          </div>
-          <ng-template #noRepos>
-            <p class="no-data">Sin repositorios</p>
-          </ng-template>
-        </div>
-      </div>
-
+<section class="page">
+  <header class="page-header">
+    <div>
+      <h1>Usuarios</h1>
+      <p class="page-subtitle">Directorio de miembros del equipo</p>
     </div>
+    <div class="counter">
+      <span class="counter-num">{{ users.length }}</span>
+      <span class="counter-label">usuarios</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="user-grid">
+      <article
+        class="user-card"
+        *ngFor="let user of users"
+        (click)="onSelectedUser(user)"
+        [class.active]="user === selectedUser">
+
+        <div class="card-top">
+          <img [src]="user.avatarUrl" [alt]="user.name" class="card-avatar">
+          <span class="role-pill" [ngClass]="user.role">{{ user.role }}</span>
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-name">{{ user.name }}</h3>
+          <p class="card-username">&#64;{{ user.username }}</p>
+
+          <div class="card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>{{ user.location }}</span>
+          </div>
+
+          <div class="card-footer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <span>{{ user.repoIds.length }} repositorios</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <aside class="detail-panel">
+      <app-user-detail
+        *ngIf="selectedUser; else emptyState"
+        [user]="selectedUser"
+        (close)="selectedUser = null">
+      </app-user-detail>
+
+      <ng-template #emptyState>
+        <div class="empty-state">
+          <div class="empty-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Selecciona un usuario</h3>
+          <p>Haz clic en cualquier tarjeta para ver su información detallada.</p>
+        </div>
+      </ng-template>
+    </aside>
   </div>
-</div>
+</section>

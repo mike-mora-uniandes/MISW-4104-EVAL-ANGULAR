@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+/* === Design tokens (Stitch-style) === */
+:root {
+  /* Surfaces */
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* Accent (selección, links, foco) */
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-soft: #eef2ff;
+  --accent-text: #4338ca;
+
+  /* Roles */
+  --admin-bg: #fef2f2;     --admin-text: #b91c1c;     --admin-border: #fecaca;
+  --developer-bg: #eff6ff; --developer-text: #1d4ed8; --developer-border: #bfdbfe;
+  --designer-bg: #faf5ff;  --designer-text: #7e22ce;  --designer-border: #e9d5ff;
+  --neutral-bg: #f1f5f9;   --neutral-text: #475569;   --neutral-border: #e2e8f0;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.04), 0 10px 15px rgba(15, 23, 42, 0.06);
+  --shadow-accent: 0 4px 6px rgba(99, 102, 241, 0.10), 0 10px 25px rgba(99, 102, 241, 0.18);
+
+  /* Radios */
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --radius-chip: 8px;
+
+  /* Tipografía */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
