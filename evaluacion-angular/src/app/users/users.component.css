@@ -1,0 +1,99 @@
+.user-container {
+  padding: 20px;
+  background-color: #f4f7f6;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Grid responsivo */
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta de usuario */
+.user-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Avatar y Badge */
+.avatar-container {
+  position: relative;
+  height: 150px;
+  background: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.role-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+
+/* Colores por rol */
+.admin { background-color: #e74c3c; }
+.developer { background-color: #3498db; }
+.designer { background-color: #9b59b6; }
+
+.user-info {
+  padding: 15px;
+}
+
+.username {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.details p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+/* Tags de Repositorios */
+.repo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.repo-tag {
+  background: #ecf0f1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: 1px solid #bdc3c7;
+}
+
+.no-data {
+  font-size: 0.8rem;
+  color: #bdc3c7;
+  font-style: italic;
+}
