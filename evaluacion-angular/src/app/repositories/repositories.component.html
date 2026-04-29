@@ -11,7 +11,7 @@
     </header>
   
     <div class="repo-grid">
-      <article class="repo-card" *ngFor="let repo of repositories">
+      <article class="repo-card" *ngFor="let repo of repositories" [routerLink]="['/repositories', repo.id]">
         <div class="repo-card-top">
           <h3 class="repo-name">{{ repo.name }}</h3>
           <span class="lang-pill" [ngClass]="repo.language">{{ repo.language }}</span>

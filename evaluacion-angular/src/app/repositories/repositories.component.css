@@ -55,6 +55,7 @@
   }
   
   .repo-card {
+    cursor: pointer;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-card);

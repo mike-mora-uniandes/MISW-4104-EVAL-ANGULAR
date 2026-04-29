@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Repository } from './repository.model';
 
 @Injectable({
@@ -14,6 +14,12 @@ export class RepositoriesService {
 getAllRepositories(): Observable<Repository[]>{
   return this.http.get<Repository[]>(this.url)
 
+}
+
+getRepositoryById(id: number): Observable<Repository | undefined> {
+  return this.getAllRepositories().pipe(
+    map(repos => repos.find(repo => repo.id === id))
+  );
 }
 
 }
