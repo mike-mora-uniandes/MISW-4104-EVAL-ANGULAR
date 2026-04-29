@@ -11,7 +11,7 @@ import { UsersService } from './users.service';
 export class UsersComponent implements OnInit {
 
   public users: User[] = [];
-  public selectedUser: User | null = null;;
+  public selectedUser: User | null = null;
 
   constructor(private _userService: UsersService) { }
 

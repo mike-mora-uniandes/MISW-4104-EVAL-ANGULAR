@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { provideHttpClient } from '@angular/common/http';
 import { UsersModule } from './users/users.module';
+import { RepositoriesModule } from './repositories/repositories.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UsersModule } from './users/users.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    RepositoriesModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
